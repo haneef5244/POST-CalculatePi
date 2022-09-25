@@ -10,7 +10,7 @@ exports.service = async () => {
         const expectedDp = result.length ? Number(result[0].decimal_place) + 1 : 0
         const newPi = getNextPi(expectedDp)
         const { rows: upsertResult } = await upsertNewPi(newPi, expectedDp)
-        return generateResponse(201, { value: upsertResult[0].payload.value })
+        return generateResponse(201, { value: BigInt(upsertResult[0].payload.value) })
     } catch (e) {
         console.error(e)
         return generateResponse(500, e.message)
