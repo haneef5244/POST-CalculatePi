@@ -33,7 +33,7 @@ const getNextPi = (expectedDp) => {
         i += 2n
     }
 
-    return (pi / (10n ** 20n))
+    return (pi / (10n ** 20n)).toString()
 }
 
 const upsertNewPi = (newPi, expectedDp) => {
