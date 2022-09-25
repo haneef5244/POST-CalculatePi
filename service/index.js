@@ -50,7 +50,7 @@ const upsertNewPi = (newPi, expectedDp) => {
         insert_new_pi as (
             INSERT INTO pi
             (payload, decimal_place, is_deleted, created_date, last_updated_date)
-            VALUES('{ "value": ${newPi} }', ${expectedDp}, false, current_timestamp, current_timestamp)
+            VALUES('{ "value": "${newPi}" }', ${expectedDp}, false, current_timestamp, current_timestamp)
             returning *
         )
         select * from insert_new_pi ;
