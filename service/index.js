@@ -33,6 +33,7 @@ const getNextPi = (expectedDp) => {
         i += 2n
     }
     let piValue = (pi / (10n ** 20n)).toString()
+    if (piValue.length == 1) return `3`
     return `3.${piValue.substring(1, piValue.length)}`
 }
 
