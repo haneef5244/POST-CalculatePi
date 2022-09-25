@@ -2,8 +2,7 @@ const knex = require('../connection')
 const { PI_TABLE, SCHEMA } = require('../constant')
 const { generateResponse } = require('../helper')
 
-exports.service = async ({ body }) => {
-    const { value } = body
+exports.service = async () => {
 
     try {
         const result = await getCurrentPi()
@@ -29,11 +28,11 @@ const getNextPi = (expectedDp) => {
     let x = 3n * (10n ** BigInt(20 + expectedDp))
     let pi = x
     while (x > 0) {
-            x = x * i / ((i + 1n) * 4n)
-            pi += x / (i + 2n)
-            i += 2n
+        x = x * i / ((i + 1n) * 4n)
+        pi += x / (i + 2n)
+        i += 2n
     }
-    
+
     return (pi / (10n ** 20n))
 }
 
